@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
             BusinessCardTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
-                        name = "Android",
+                        name = "Android Studio testing the Second branch",
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
