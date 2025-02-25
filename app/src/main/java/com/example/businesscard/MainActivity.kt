@@ -6,12 +6,14 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
@@ -25,10 +27,18 @@ class MainActivity : ComponentActivity() {
         setContent {
             BusinessCardTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    BusinessCard(
-                        name = "Android Studio testing the Second branch",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    Box(
+                        contentAlignment = Alignment.Center,
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(innerPadding)
+                    ) {
+                        BusinessCard(
+                            name = "Thomas Testa",
+                            email = "thomas.testa@cix.csi.cuny.edu",
+                            modifier = Modifier.padding(innerPadding)
+                        )
+                    }
                 }
             }
         }
@@ -36,13 +46,19 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun BusinessCard(name: String, modifier: Modifier = Modifier) {
+fun BusinessCard(name: String, email: String, modifier: Modifier = Modifier) {
     Column(
-        Modifier.border(BorderStroke(2.dp, Color.Red))
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .border(BorderStroke(2.dp, Color.Black))
+            .padding(20.dp)
+
     ) {
         Text(
-            text = "Hello $name!",
-            modifier = modifier
+            text = name,
+        )
+        Text(
+            text = email,
         )
     }
 }
@@ -51,6 +67,6 @@ fun BusinessCard(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     BusinessCardTheme {
-        BusinessCard("Android")
+        BusinessCard("Thomas Testa", "thomas.testa@cix.csi.cuny.edu")
     }
 }
