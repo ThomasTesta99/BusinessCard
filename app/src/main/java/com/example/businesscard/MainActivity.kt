@@ -89,6 +89,6 @@ fun BusinessCard(name: String, email: String, occupation: String, modifier: Modi
 @Composable
 fun GreetingPreview() {
     BusinessCardTheme {
-        BusinessCard("Thomas Testa", "thomas.testa@cix.csi.cuny.edu", "Software Egn")
+        BusinessCard("Thomas Testa", "thomas.testa@cix.csi.cuny.edu", "Software Engineer")
     }
 }
