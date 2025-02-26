@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -33,7 +34,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             BusinessCardTheme {
-                Scaffold(modifier = Modifier.fillMaxSize(), containerColor = Color.Blue) { innerPadding ->
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Box(
                         contentAlignment = Alignment.Center,
                         modifier = Modifier
@@ -59,9 +60,9 @@ fun BusinessCard(name: String, email: String, occupation: String, modifier: Modi
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
-            .border(BorderStroke(2.dp, Color.White), RoundedCornerShape(32.dp))
+            .background(Color.Black, RoundedCornerShape(32.dp))
+            .border(BorderStroke(2.dp, Color.Blue), RoundedCornerShape(32.dp))
             .padding(20.dp)
-
     ) {
         Image(
             painter = image,
